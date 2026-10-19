@@ -3,110 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Djaël MOLA - Projets</title>
-    <meta name="description" content="Projets open-source de Djaël MOLA">
+    <title>Projets | Djaël MOLA</title>
+    <meta name="description" content="Projets open-source, scripts Linux et extensions web de Djaël MOLA : Chameleon, RGAAPlus, Potato Mode, Muzenza Saint-Ouen.">
     <meta property="og:title" content="Djaël MOLA - Projets">
-    <meta property="og:description" content="Découvrez les projets open-source et les réalisations de Djaël MOLA.">
+    <meta property="og:description" content="Projets open-source, scripts Linux et extensions web de Djaël MOLA.">
     <meta property="og:type" content="website">
-    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
-    <link rel="stylesheet" href="/assets/fonts/outfit/index.css">
-    <link rel="stylesheet" href="/assets/icons/regular/style.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <meta name="theme-color" content="#0b0f19" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+    <link rel="canonical" href="https://djael-ml.github.io/projects/">
+
+    <!-- Anti-scintillement de thème (Anti-FOUC) -->
+    <script>
+        (function(){
+            const t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+
+    <!-- Typographies : Crete Round, Heebo, Mulish (Muli) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Heebo:wght@500;700;800&family=Mulish:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icônes Phosphor -->
+    <link rel="stylesheet" href="../assets/icons/regular/style.css">
+
+    <!-- Styles compilés légers -->
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body>
-    <div class="custom-cursor"></div>
-    <div class="background-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
+<body class="font-sans font-semibold antialiased text-slate-900 dark:text-slate-100 bg-[#f8fafc] dark:bg-[#0b0f19] min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
 
-    <!-- Navigation -->
-    <nav class="glass-nav">
-        <div class="nav-content">
-            <a href="/" class="logo">DM.</a>
-            <button class="burger-btn" aria-label="Menu">
-                <i class="ph ph-list"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/about/">À propos & Compétences</a></li>
-                <li><a href="/projects/">Projets</a></li>
-            </ul>
-            <div class="nav-controls" style="display: flex; gap: 1rem;">
-                <button id="theme-toggle" class="icon-btn" aria-label="Changer le thème">
-                    <i class="ph ph-sun"></i>
-                </button>
-                <button class="icon-btn burger-btn" aria-label="Menu">
-                    <i class="ph ph-list"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation Dynamique & Interactive -->
+    <header class="clean-nav">
+        <nav class="flex items-center justify-between px-6 py-2.5 max-w-7xl mx-auto" aria-label="Navigation principale">
+            <a href="../" class="font-display text-3xl tracking-tight text-blue-500 hover:scale-105 transition-transform">DM.</a>
 
-    <main>
-        <section id="projects" class="projects-section" style="min-height: 80vh;">
-            <div class="section-header animate-on-scroll">
-                <h2>Projets Réalisés</h2>
-                <p>Découvrez mes meilleures réalisations et projets open-source.</p>
-            </div>
-            <div id="github-projects" class="projects-grid">
-                <!-- Squelettes de chargement -->
-                <div class="glass-card project-card skeleton"></div>
-                <div class="glass-card project-card skeleton"></div>
-                <div class="glass-card project-card skeleton"></div>
-                <div class="glass-card project-card skeleton"></div>
-            </div>
-        </section>
-    </main>
-
-    <footer id="contact" class="glass-footer">
-        <div class="footer-content animate-on-scroll">
-            <h2>Contactez-moi</h2>
-            <div class="contact-links">
-                <a href="mailto:djaelmola@gmail.com" class="contact-item">
-                    <div class="icon-wrapper"><i class="ph ph-envelope-simple"></i></div>
-                    <span>Email</span>
+            <div class="hidden md:flex nav-pills">
+                <a href="../" class="nav-item">
+                    <i class="ph ph-house text-base" aria-hidden="true"></i>
+                    <span>Accueil</span>
                 </a>
-                <a href="https://github.com/djael-ml" target="_blank" class="contact-item">
-                    <div class="icon-wrapper"><i class="ph ph-github-logo"></i></div>
+                <a href="../about/" class="nav-item">
+                    <i class="ph ph-user-list text-base" aria-hidden="true"></i>
+                    <span>Parcours & Stack</span>
+                </a>
+                <a href="./" class="nav-item active" aria-current="page">
+                    <i class="ph ph-code-block text-base" aria-hidden="true"></i>
+                    <span>Projets</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-2.5">
+                <a href="https://github.com/djael-ml" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-subheading font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:border-blue-500 border border-slate-300 dark:border-slate-700 active:scale-95 transition" title="Profil GitHub">
+                    <i class="ph ph-github-logo text-base text-blue-500" aria-hidden="true"></i>
                     <span>GitHub</span>
                 </a>
-                <a href="/assets/docs/CV - Djaël MOLA.pdf" target="_blank" class="contact-item">
-                    <div class="icon-wrapper"><i class="ph ph-file-pdf"></i></div>
-                    <span>CV</span>
+                <button id="theme-toggle" class="p-2 rounded-full text-slate-700 dark:text-slate-200 hover:text-blue-500 dark:hover:text-blue-400 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 active:scale-95 transition" aria-label="Changer le thème">
+                    <i class="ph ph-sun text-xl"></i>
+                </button>
+                <button class="burger-btn md:hidden p-2 rounded-full text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 active:scale-95 transition" aria-label="Ouvrir le menu">
+                    <i class="ph ph-list text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-overlay fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity md:hidden" aria-hidden="true"></div>
+    <aside class="mobile-menu p-8 flex flex-col justify-between md:hidden" aria-label="Menu mobile">
+        <div>
+            <div class="flex items-center justify-between mb-8">
+                <span class="font-display text-3xl text-blue-500">DM.</span>
+            </div>
+            <nav class="flex flex-col gap-3 text-lg font-bold font-subheading">
+                <a href="../" class="nav-item">
+                    <i class="ph ph-house text-xl" aria-hidden="true"></i>
+                    <span>Accueil</span>
+                </a>
+                <a href="../about/" class="nav-item">
+                    <i class="ph ph-user-list text-xl" aria-hidden="true"></i>
+                    <span>Parcours & Stack</span>
+                </a>
+                <a href="./" class="nav-item active">
+                    <i class="ph ph-code-block text-xl" aria-hidden="true"></i>
+                    <span>Projets</span>
+                </a>
+            </nav>
+        </div>
+        <div class="pt-6 border-t border-slate-200 dark:border-slate-800 text-xs font-bold font-subheading text-slate-500">
+            Djaël MOLA • Saint-Ouen
+        </div>
+    </aside>
+
+    <!-- Contenu Principal -->
+    <main class="w-full max-w-5xl mx-auto px-6 pt-32 pb-20 flex-1">
+        <!-- En-tête -->
+        <div class="text-center mb-14">
+            <h1 class="text-4xl sm:text-6xl font-display tracking-tight text-slate-900 dark:text-white mb-3">
+                Projets
+            </h1>
+            <p class="text-base sm:text-xl text-slate-700 dark:text-slate-300 max-w-2xl mx-auto font-semibold">
+                Outils système Linux, extensions navigateur et plateformes web que j'ai conçus.
+            </p>
+        </div>
+
+        <!-- Grille de Projets (2x2 symétrique et rapide) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Chameleon -->
+            <div class="clean-card p-7 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Chameleon</h3>
+                        <a href="https://github.com/djael-ml/chameleon" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-subheading font-bold text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 active:scale-95 transition">
+                            <i class="ph ph-github-logo text-sm" aria-hidden="true"></i> Code
+                        </a>
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 mb-6 leading-relaxed font-semibold">
+                        Outil tout-en-un d'administration, nettoyage, durcissement (pare-feu, DNS-over-TLS) et optimisation noyau (ZRAM, TCP BBR, I/O) multi-distributions Linux. Interface double moteur GUI (Zenity) et TUI (Whiptail) avec snapshots Timeshift/Snapper.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+                    <span class="tech-tag">Bash / Shell</span>
+                    <span class="tech-tag">Linux Kernel</span>
+                    <span class="tech-tag">Zenity / Whiptail</span>
+                    <span class="tech-tag">Sécurité</span>
+                </div>
+            </div>
+
+            <!-- muzenza-saintouen -->
+            <div class="clean-card p-7 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Muzenza Saint-Ouen</h3>
+                        <div class="flex items-center gap-2 font-subheading">
+                            <a href="https://muzenza-sto.fr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 active:scale-95 transition">
+                                <i class="ph ph-arrow-square-out text-sm" aria-hidden="true"></i> Site
+                            </a>
+                            <a href="https://github.com/djael-ml/muzenza-saintouen" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 active:scale-95 transition">
+                                <i class="ph ph-github-logo text-sm" aria-hidden="true"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 mb-6 leading-relaxed font-semibold">
+                        Plateforme web du groupe Capoeira Muzenza de Saint-Ouen. Présentation des cours par tranche d'âge, planning dynamique et informations d'inscription.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+                    <span class="tech-tag">Web</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Tailwind CSS</span>
+                    <span class="tech-tag">muzenza-sto.fr</span>
+                </div>
+            </div>
+
+            <!-- RGAAPlus -->
+            <div class="clean-card p-7 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">RGAAPlus</h3>
+                        <a href="https://github.com/djael-ml/RGAAPlus" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-subheading font-bold text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 active:scale-95 transition">
+                            <i class="ph ph-github-logo text-sm" aria-hidden="true"></i> Code
+                        </a>
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 mb-6 leading-relaxed font-semibold">
+                        Extension Chrome d'audit d'accessibilité numérique (RGAA / WCAG). Détecte les anomalies sur le DOM en direct et permet de simuler des correctifs à la volée.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Manifest V3</span>
+                    <span class="tech-tag">Accessibilité RGAA</span>
+                </div>
+            </div>
+
+            <!-- Potato Mode -->
+            <div class="clean-card p-7 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-start justify-between gap-3 mb-3">
+                        <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Potato Mode</h3>
+                        <a href="https://github.com/djael-ml/potato-mode" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-subheading font-bold text-slate-800 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 active:scale-95 transition">
+                            <i class="ph ph-github-logo text-sm" aria-hidden="true"></i> Code
+                        </a>
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 mb-6 leading-relaxed font-semibold">
+                        Extension Chrome & Firefox conçue pour alléger radicalement n'importe quel site web : coupure des animations, blocage des GIFs/vidéos en autoplay, design plat et polices système pour réduire l'usage CPU.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-200 dark:border-slate-800">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Chrome & Firefox</span>
+                    <span class="tech-tag">CSS / DOM</span>
+                    <span class="tech-tag">Performances</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Épuré -->
+    <footer id="contact" class="clean-footer py-12 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-display text-slate-900 dark:text-white mb-3">Contact</h2>
+            <p class="text-base text-slate-700 dark:text-slate-300 mb-7 max-w-md mx-auto font-semibold">
+                Basé à Saint-Ouen. Joignable par mail ou sur GitHub.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-3.5 mb-7 font-subheading">
+                <a href="mailto:djaelmola@gmail.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-800 hover:border-blue-500 border border-slate-300 dark:border-slate-700 active:scale-95 transition">
+                    <i class="ph ph-envelope-simple text-base text-blue-500" aria-hidden="true"></i> djaelmola@gmail.com
+                </a>
+                <a href="https://github.com/djael-ml" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-800 hover:border-blue-500 border border-slate-300 dark:border-slate-700 active:scale-95 transition">
+                    <i class="ph ph-github-logo text-base text-blue-500" aria-hidden="true"></i> github.com/djael-ml
+                </a>
+                <a href="../assets/docs/CV - Djaël MOLA.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-800 hover:border-blue-500 border border-slate-300 dark:border-slate-700 active:scale-95 transition">
+                    <i class="ph ph-file-pdf text-base text-blue-500" aria-hidden="true"></i> CV (PDF)
                 </a>
             </div>
-            <button id="open-contact-modal" class="btn secondary-btn contact-btn"><i class="ph ph-envelope-open"></i> Contacter</button>
 
-            <p class="copyright">© 2026 Djaël MOLA.</p>
+            <button id="open-contact-modal" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-subheading font-bold text-blue-600 dark:text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 active:scale-95 transition">
+                <i class="ph ph-paper-plane-tilt text-base" aria-hidden="true"></i> M'écrire via le formulaire
+            </button>
+
+            <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 font-bold font-subheading">
+                © 2026 Djaël MOLA • Saint-Ouen
+            </div>
         </div>
     </footer>
 
-    <!-- Contact Modal -->
-    <div id="contact-modal" class="modal-overlay">
-        <div class="modal-content glass-card">
-            <button id="close-contact-modal" class="icon-btn close-modal"><i class="ph ph-x"></i></button>
-            <h2>Envoyer un message</h2>
-            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+    <!-- Modale de Contact Opaque -->
+    <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content p-7 sm:p-9">
+            <div class="flex items-center justify-between mb-6">
+                <h3 id="modal-title" class="text-2xl font-display text-slate-900 dark:text-white">Envoyer un message</h3>
+                <button id="close-contact-modal" class="p-1.5 rounded-full text-slate-500 hover:text-slate-900 dark:hover:text-white transition" aria-label="Fermer la boîte de dialogue">
+                    <i class="ph ph-x text-xl" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-4">
                 <input type="hidden" name="access_key" value="ba34ec1b-ff70-4a72-8b4b-f81474bbb099">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Votre Nom / Entreprise" required>
-                    <input type="email" name="email" placeholder="Votre Email" required>
+
+                <div>
+                    <label for="contact-name-proj" class="block text-xs font-subheading font-bold text-slate-700 dark:text-slate-300 mb-1">Nom / Structure</label>
+                    <input id="contact-name-proj" type="text" name="name" autocomplete="name" required class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-blue-500 transition" placeholder="Votre nom">
                 </div>
-                <select name="subject" required class="form-select">
-                    <option value="" disabled selected>-- Choisissez un sujet --</option>
-                    <option value="Proposition de stage / alternance">Proposition de stage / alternance</option>
-                    <option value="Proposition de poste / mission">Proposition de poste / mission</option>
-                    <option value="Échange technique / Autre">Échange technique / Autre</option>
-                </select>
-                <textarea name="message" placeholder="Votre Message (optionnel)" rows="3"></textarea>
-                <button type="submit" class="btn primary-btn"><i class="ph ph-paper-plane-tilt"></i> Envoyer</button>
+
+                <div>
+                    <label for="contact-email-proj" class="block text-xs font-subheading font-bold text-slate-700 dark:text-slate-300 mb-1">Email</label>
+                    <input id="contact-email-proj" type="email" name="email" autocomplete="email" required class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-blue-500 transition" placeholder="votre.email@exemple.com">
+                </div>
+
+                <div>
+                    <label for="contact-subject-proj" class="block text-xs font-subheading font-bold text-slate-700 dark:text-slate-300 mb-1">Objet</label>
+                    <select id="contact-subject-proj" name="subject" required class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-blue-500 transition">
+                        <option value="" disabled selected>-- Choisir un objet --</option>
+                        <option value="Contact professionnel">Contact professionnel</option>
+                        <option value="Question sur un projet / Open-source">Question sur un projet / Open-source</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="contact-msg-proj" class="block text-xs font-subheading font-bold text-slate-700 dark:text-slate-300 mb-1">Message</label>
+                    <textarea id="contact-msg-proj" name="message" rows="3" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-blue-500 transition" placeholder="Votre message..."></textarea>
+                </div>
+
+                <button type="submit" class="mt-2 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-subheading font-bold text-white bg-blue-600 hover:bg-blue-500 active:scale-95 transition">
+                    <i class="ph ph-paper-plane-tilt text-base" aria-hidden="true"></i> Envoyer
+                </button>
             </form>
         </div>
     </div>
 
-    <script src="/assets/js/vanilla-tilt.min.js"></script>
-    <script src="/assets/js/script.js"></script>
+    <!-- Script optimisé -->
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
+

@@ -3,178 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Djaël MOLA - À propos</title>
-    <meta name="description" content="Parcours, formation et compétences de Djaël MOLA">
-    <meta property="og:title" content="Djaël MOLA - À propos">
-    <meta property="og:description" content="Parcours, formation et compétences de Djaël MOLA, Développeur Web Junior.">
+    <title>Parcours & Stack | Djaël MOLA</title>
+    <meta name="description" content="Expériences à la CPRN, formations BTS SIO SLAM, compétences et certifications de Djaël MOLA.">
+    <meta property="og:title" content="Djaël MOLA - Parcours & Stack">
+    <meta property="og:description" content="Alternant Administrateur Système à la CPRN & Développeur Web (BTS SIO SLAM).">
     <meta property="og:type" content="website">
-    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
-    <link rel="stylesheet" href="/assets/fonts/outfit/index.css">
-    <link rel="stylesheet" href="/assets/icons/regular/style.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-    <div class="custom-cursor"></div>
-    <div class="background-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
+    <meta name="theme-color" content="#0b0f19" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+    <link rel="canonical" href="https://djael-ml.github.io/about/">
 
-    <!-- Navigation -->
-    <nav class="glass-nav">
-        <div class="nav-content">
-            <a href="/" class="logo">DM.</a>
-            <button class="burger-btn" aria-label="Menu">
-                <i class="ph ph-list"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/about/">À propos & Compétences</a></li>
-                <li><a href="/projects/">Projets</a></li>
-            </ul>
-            <div class="nav-controls" style="display: flex; gap: 1rem;">
-                <button id="theme-toggle" class="icon-btn" aria-label="Changer le thème">
-                    <i class="ph ph-sun"></i>
+    <!-- Anti-scintillement de thème (Anti-FOUC) -->
+    <script>
+        (function(){
+            const t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+
+    <!-- Typographies : Crete Round, Heebo, Mulish (Muli) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Heebo:wght@500;700;800&family=Mulish:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icônes Phosphor -->
+    <link rel="stylesheet" href="../assets/icons/regular/style.css">
+
+    <!-- Styles compilés légers -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="font-sans font-semibold antialiased text-slate-900 dark:text-slate-100 bg-[#f8fafc] dark:bg-[#0b0f19] min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+
+    <!-- Navigation Dynamique & Interactive -->
+    <header class="clean-nav">
+        <nav class="flex items-center justify-between px-6 py-2.5 max-w-7xl mx-auto" aria-label="Navigation principale">
+            <a href="../" class="font-display text-3xl tracking-tight text-blue-500 hover:scale-105 transition-transform">DM.</a>
+
+            <div class="hidden md:flex nav-pills">
+                <a href="../" class="nav-item">
+                    <i class="ph ph-house text-base" aria-hidden="true"></i>
+                    <span>Accueil</span>
+                </a>
+                <a href="./" class="nav-item active" aria-current="page">
+                    <i class="ph ph-user-list text-base" aria-hidden="true"></i>
+                    <span>Parcours & Stack</span>
+                </a>
+                <a href="../projects/" class="nav-item">
+                    <i class="ph ph-code-block text-base" aria-hidden="true"></i>
+                    <span>Projets</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-2.5">
+                <a href="https://github.com/djael-ml" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-subheading font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:border-blue-500 border border-slate-300 dark:border-slate-700 active:scale-95 transition" title="Profil GitHub">
+                    <i class="ph ph-github-logo text-base text-blue-500" aria-hidden="true"></i>
+                    <span>GitHub</span>
+                </a>
+                <button id="theme-toggle" class="p-2 rounded-full text-slate-700 dark:text-slate-200 hover:text-blue-500 dark:hover:text-blue-400 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 active:scale-95 transition" aria-label="Changer le thème">
+                    <i class="ph ph-sun text-xl"></i>
                 </button>
-                <button class="icon-btn burger-btn" aria-label="Menu">
-                    <i class="ph ph-list"></i>
+                <button class="burger-btn md:hidden p-2 rounded-full text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 active:scale-95 transition" aria-label="Ouvrir le menu">
+                    <i class="ph ph-list text-2xl"></i>
                 </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-overlay fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity md:hidden" aria-hidden="true"></div>
+    <aside class="mobile-menu p-8 flex flex-col justify-between md:hidden" aria-label="Menu mobile">
+        <div>
+            <div class="flex items-center justify-between mb-8">
+                <span class="font-display text-3xl text-blue-500">DM.</span>
+            </div>
+            <nav class="flex flex-col gap-3 text-lg font-bold font-subheading">
+                <a href="../" class="nav-item">
+                    <i class="ph ph-house text-xl" aria-hidden="true"></i>
+                    <span>Accueil</span>
+                </a>
+                <a href="./" class="nav-item active">
+                    <i class="ph ph-user-list text-xl" aria-hidden="true"></i>
+                    <span>Parcours & Stack</span>
+                </a>
+                <a href="../projects/" class="nav-item">
+                    <i class="ph ph-code-block text-xl" aria-hidden="true"></i>
+                    <span>Projets</span>
+                </a>
+            </nav>
+        </div>
+        <div class="pt-6 border-t border-slate-200 dark:border-slate-800 text-xs font-bold font-subheading text-slate-500">
+            Djaël MOLA • Saint-Ouen
+        </div>
+    </aside>
+
+    <!-- Contenu Principal -->
+    <main class="w-full max-w-5xl mx-auto px-6 pt-32 pb-20 flex-1">
+        <!-- En-tête -->
+        <div class="text-center mb-14">
+            <h1 class="text-4xl sm:text-6xl font-display tracking-tight text-slate-900 dark:text-white mb-3">
+                Parcours & Stack
+            </h1>
+            <p class="text-base sm:text-xl text-slate-700 dark:text-slate-300 max-w-2xl mx-auto font-semibold">
+                Expériences en entreprise, cursus scolaire et compétences techniques.
+            </p>
+        </div>
+
+        <!-- Timeline : Expériences & Formations -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-7 mb-14">
+            <!-- Expériences -->
+            <div class="clean-card p-7 sm:p-8">
+                <div class="flex items-center gap-3.5 mb-7 pb-4 border-b border-slate-200 dark:border-slate-800">
+                    <div class="icon-box bg-blue-500/10 text-blue-500" aria-hidden="true">
+                        <i class="ph ph-briefcase"></i>
+                    </div>
+                    <h2 class="text-2xl font-display text-slate-900 dark:text-white">Expériences</h2>
+                </div>
+
+                <div class="space-y-7">
+                    <!-- Alternance CPRN -->
+                    <div class="relative pl-5 border-l-2 border-blue-500">
+                        <span class="date-tag text-xs text-blue-500 font-bold">2026 - 2027 (1 an)</span>
+                        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">Alternant Administrateur Système</h3>
+                        <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mb-1.5">CPRN (Caisse de Prévoyance et de Retraite des Notaires)</p>
+                        <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-semibold">
+                            Alternance effectuée à la CPRN pour valider ma deuxième année de BTS SIO. Administration système, maintien opérationnel et suivi du parc.
+                        </p>
+                    </div>
+
+                    <!-- Stage CPRN -->
+                    <div class="relative pl-5 border-l-2 border-slate-300 dark:border-slate-700">
+                        <span class="date-tag text-xs text-slate-500 font-bold">Juin 2026</span>
+                        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">Stagiaire Cybersécurité Opérationnelle</h3>
+                        <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mb-1.5">CPRN (Paris)</p>
+                        <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-semibold">
+                            Conception d'un kit de contrôles, de traçabilité et de procédures pour renforcer la sécurité et le suivi des systèmes d'information.
+                        </p>
+                    </div>
+
+                    <!-- Capoeira Muzenza -->
+                    <div class="relative pl-5 border-l-2 border-slate-300 dark:border-slate-700">
+                        <span class="date-tag text-xs text-slate-500 font-bold">2024 - 2025 (1 an)</span>
+                        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">Aide-Enseignant Capoeira</h3>
+                        <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mb-1.5">MIG SNU — Association Muzenza</p>
+                        <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-semibold">
+                            Encadrement des cours pour enfants (4 à 14 ans), gestion de groupe et apprentissage technique.
+                        </p>
+                    </div>
+
+                    <!-- Stage Mairie de Colombes -->
+                    <div class="relative pl-5 border-l-2 border-slate-300 dark:border-slate-700">
+                        <span class="date-tag text-xs text-slate-500 font-bold">1 semaine</span>
+                        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">Stage Service Propreté</h3>
+                        <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mb-1">Mairie de Colombes</p>
+                        <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-semibold">
+                            Sensibilisation citoyenne et découverte du terrain en service public.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formations -->
+            <div class="clean-card p-7 sm:p-8">
+                <div class="flex items-center gap-3.5 mb-7 pb-4 border-b border-slate-200 dark:border-slate-800">
+                    <div class="icon-box bg-indigo-500/10 text-indigo-500" aria-hidden="true">
+                        <i class="ph ph-graduation-cap"></i>
+                    </div>
+                    <h2 class="text-2xl font-display text-slate-900 dark:text-white">Formation</h2>
+                </div>
+
+                <div class="space-y-7">
+                    <!-- BTS SIO 2 -->
+                    <div class="relative pl-5 border-l-2 border-indigo-500">
+                        <span class="date-tag text-xs text-indigo-500 font-bold">2026 - 2027</span>
+                        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">BTS SIO — 2<sup>e</sup> année (Option SLAM)</h3>
+                        <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mb-1.5">IMCP — Institut du Marais-Charlemagne-Pollès</p>
+                        <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-semibold">
+                            Services Informatiques aux Organisations : développement d'applications, bases de données, architecture et cybersécurité.
+                        </p>
+                    </div>
+
+                    <!-- BTS SIO 1 -->
+                    <div class="relative pl-5 border-l-2 border-slate-300 dark:border-slate-700">
+                        <span class="date-tag text-xs text-slate-500 font-bold">2025 - 2026</span>
+                        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">BTS SIO — 1<sup>ère</sup> année</h3>
+                        <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mb-1.5">ORT Montreuil</p>
+                        <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-semibold">
+                            Bases du développement logiciel, réseau, système Linux et gestion de parc informatique.
+                        </p>
+                    </div>
+
+                    <!-- Bac -->
+                    <div class="relative pl-5 border-l-2 border-slate-300 dark:border-slate-700">
+                        <span class="date-tag text-xs text-slate-500 font-bold">2024 — Obtenu</span>
+                        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">Baccalauréat Général (Maths / SI)</h3>
+                        <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mb-1.5">Lycée Marcel Cachin de Saint-Ouen</p>
+                        <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-semibold">
+                            Spécialités Mathématiques et Sciences de l'Ingénieur.
+                        </p>
+                    </div>
+
+                    <!-- Engagement Citoyen -->
+                    <div class="relative pl-5 border-l-2 border-slate-300 dark:border-slate-700">
+                        <span class="date-tag text-xs text-slate-500 font-bold">2023</span>
+                        <h3 class="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white mt-0.5">Engagement Citoyen</h3>
+                        <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed font-semibold mt-1">
+                            SNU validé (toutes étapes) & inscription Réserviste en cours.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
 
-    <main>
-        <section id="about" class="about-section">
-            <div class="section-header animate-on-scroll">
-                <h2>Parcours & Formation</h2>
+        <!-- Compétences, Certifications, Langues & Intérêts -->
+        <section id="skills" class="w-full">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-display text-slate-900 dark:text-white mb-2">
+                    Compétences & Infos
+                </h2>
+                <p class="text-base text-slate-700 dark:text-slate-300 font-semibold">
+                    Stack technique, certifications, langues et centres d'intérêt.
+                </p>
             </div>
-            <div class="timeline-container">
-                <div class="glass-card timeline-card animate-on-scroll">
-                    <h3><i class="ph ph-graduation-cap"></i> Formations</h3>
-                    <ul class="timeline">
-                        <li>
-                            <span class="date">2026 - 2027</span>
-                            <h4>BTS SIO (2ème année)</h4>
-                            <p>IMCP - Institut du Marais-Charlemagne-Pollès</p>
-                        </li>
-                        <li>
-                            <span class="date">2025</span>
-                            <h4>BTS SIO (1ère année)</h4>
-                            <p>ORT Montreuil</p>
-                        </li>
-                        <li>
-                            <span class="date">2024</span>
-                            <h4>Baccalauréat Général (Maths / SI)</h4>
-                            <p>Lycée Marcel Cachin de Saint-Ouen</p>
-                        </li>
-                    </ul>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Frameworks & Back / Front -->
+                <div class="clean-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="icon-box bg-blue-500/10 text-blue-500 mb-3.5" aria-hidden="true">
+                            <i class="ph ph-code"></i>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-1">Frameworks & Web</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-4 font-semibold">Développement back-end et interfaces.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-3.5 border-t border-slate-200 dark:border-slate-800">
+                        <span class="tech-tag">Symfony</span>
+                        <span class="tech-tag">PHP 8</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">MySQL</span>
+                    </div>
                 </div>
 
-                <div class="glass-card timeline-card animate-on-scroll" style="transition-delay: 0.2s;">
-                    <h3><i class="ph ph-briefcase"></i> Expériences</h3>
-                    <ul class="timeline">
-                        <li>
-                            <span class="date">Mai 2026 - Juin 2026</span>
-                            <h4>Stagiaire - Systèmes d'Information</h4>
-                            <p>CPRN (Paris). Stage de fin de 1ère année de BTS SIO.</p>
-                        </li>
-                        <li>
-                            <span class="date">1 an</span>
-                            <h4>AideEnseignant Capoeira</h4>
-                            <p>MIG SNU - Association Muzenza. Pédagogie, gestion de groupe et transmission de discipline (4-14 ans).</p>
-                        </li>
-                        <li>
-                            <span class="date">Saisonnier</span>
-                            <h4>CatSitter</h4>
-                            <p>Indépendant. Responsabilité totale d'animaux à domicile en toute autonomie.</p>
-                        </li>
-                        <li>
-                            <span class="date">1 semaine</span>
-                            <h4>Stage Service Propreté</h4>
-                            <p>Mairie de Colombes. Sensibilisation citoyenne et service public.</p>
-                        </li>
-                    </ul>
+                <!-- Système & Certifications -->
+                <div class="clean-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="icon-box bg-indigo-500/10 text-indigo-500 mb-3.5" aria-hidden="true">
+                            <i class="ph ph-certificate"></i>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-1">Système & Certifs</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-4 font-semibold">Administration Linux et certifications.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-3.5 border-t border-slate-200 dark:border-slate-800">
+                        <span class="tech-tag">Linux : Admin Système</span>
+                        <span class="tech-tag">Bash / Shell</span>
+                        <span class="tech-tag">Unhatched : Dév</span>
+                        <span class="tech-tag">Pix</span>
+                        <span class="tech-tag">Méca (Entretien)</span>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="skills" class="skills-section">
-            <div class="section-header animate-on-scroll">
-                <h2>Compétences techniques</h2>
-            </div>
-            <div class="skills-grid">
-                <div class="glass-card skill-card animate-on-scroll">
-                    <i class="ph ph-code"></i>
-                    <h3>Frontend</h3>
-                    <p>React, Vue.js, TypeScript, HTML/CSS</p>
+                <!-- Langues -->
+                <div class="clean-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="icon-box bg-cyan-500/10 text-cyan-500 mb-3.5" aria-hidden="true">
+                            <i class="ph ph-translate"></i>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-1">Langues</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-4 font-semibold">Pratique à l'écrit et à l'oral.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-3.5 border-t border-slate-200 dark:border-slate-800">
+                        <span class="tech-tag">Français & Créole (Natif)</span>
+                        <span class="tech-tag">Anglais (B1+)</span>
+                        <span class="tech-tag">Espagnol (B1)</span>
+                        <span class="tech-tag">Portugais</span>
+                    </div>
                 </div>
-                <div class="glass-card skill-card animate-on-scroll" style="transition-delay: 0.1s;">
-                    <i class="ph ph-database"></i>
-                    <h3>Backend</h3>
-                    <p>Symfony, PHP 8, Node.js, MySQL</p>
-                </div>
-                <div class="glass-card skill-card animate-on-scroll" style="transition-delay: 0.2s;">
-                    <i class="ph ph-terminal"></i>
-                    <h3>Outils & OS</h3>
-                    <p>Linux (Administration Système), Bash, GitHub</p>
-                </div>
-                <div class="glass-card skill-card animate-on-scroll" style="transition-delay: 0.3s;">
-                    <i class="ph ph-certificate"></i>
-                    <h3>Certifications</h3>
-                    <p>Pix, Linux (Unhatched Dév)</p>
+
+                <!-- Intérêts -->
+                <div class="clean-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="icon-box bg-emerald-500/10 text-emerald-500 mb-3.5" aria-hidden="true">
+                            <i class="ph ph-barbell"></i>
+                        </div>
+                        <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-1">Intérêts</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mb-4 font-semibold">Sports, loisirs et voyages.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-3.5 border-t border-slate-200 dark:border-slate-800">
+                        <span class="tech-tag">Capoeira</span>
+                        <span class="tech-tag">Musculation</span>
+                        <span class="tech-tag">Basket</span>
+                        <span class="tech-tag">Mécanique</span>
+                        <span class="tech-tag">Voyages (Europe, DOM)</span>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer id="contact" class="glass-footer">
-        <div class="footer-content animate-on-scroll">
-            <h2>Contactez-moi</h2>
-            <div class="contact-links">
-                <a href="mailto:djaelmola@gmail.com" class="contact-item">
-                    <div class="icon-wrapper"><i class="ph ph-envelope-simple"></i></div>
-                    <span>Email</span>
+    <!-- Footer Épuré -->
+    <footer id="contact" class="clean-footer py-12 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-display text-slate-900 dark:text-white mb-3">Contact</h2>
+            <p class="text-base text-slate-700 dark:text-slate-300 mb-7 max-w-md mx-auto font-semibold">
+                Basé à Saint-Ouen. Joignable par mail ou sur GitHub.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-3.5 mb-7 font-subheading">
+                <a href="mailto:djaelmola@gmail.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-800 hover:border-blue-500 border border-slate-300 dark:border-slate-700 active:scale-95 transition">
+                    <i class="ph ph-envelope-simple text-base text-blue-500" aria-hidden="true"></i> djaelmola@gmail.com
                 </a>
-                <a href="https://github.com/djael-ml" target="_blank" class="contact-item">
-                    <div class="icon-wrapper"><i class="ph ph-github-logo"></i></div>
-                    <span>GitHub</span>
+                <a href="https://github.com/djael-ml" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-800 hover:border-blue-500 border border-slate-300 dark:border-slate-700 active:scale-95 transition">
+                    <i class="ph ph-github-logo text-base text-blue-500" aria-hidden="true"></i> github.com/djael-ml
                 </a>
-                <a href="/assets/docs/CV - Djaël MOLA.pdf" target="_blank" class="contact-item">
-                    <div class="icon-wrapper"><i class="ph ph-file-pdf"></i></div>
-                    <span>CV</span>
+                <a href="../assets/docs/CV - Djaël MOLA.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-800 hover:border-blue-500 border border-slate-300 dark:border-slate-700 active:scale-95 transition">
+                    <i class="ph ph-file-pdf text-base text-blue-500" aria-hidden="true"></i> CV (PDF)
                 </a>
             </div>
-            <button id="open-contact-modal" class="btn secondary-btn contact-btn"><i class="ph ph-envelope-open"></i> Contacter</button>
 
-            <p class="copyright">© 2026 Djaël MOLA.</p>
+            <button id="open-contact-modal" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-subheading font-bold text-blue-600 dark:text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 active:scale-95 transition">
+                <i class="ph ph-paper-plane-tilt text-base" aria-hidden="true"></i> M'écrire via le formulaire
+            </button>
+
+            <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 font-bold font-subheading">
+                © 2026 Djaël MOLA • Saint-Ouen
+            </div>
         </div>
     </footer>
 
-    <!-- Contact Modal -->
-    <div id="contact-modal" class="modal-overlay">
-        <div class="modal-content glass-card">
-            <button id="close-contact-modal" class="icon-btn close-modal"><i class="ph ph-x"></i></button>
-            <h2>Envoyer un message</h2>
-            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+    <!-- Modale de Contact Opaque -->
+    <div id="contact-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content p-7 sm:p-9">
+            <div class="flex items-center justify-between mb-6">
+                <h3 id="modal-title" class="text-2xl font-display text-slate-900 dark:text-white">Envoyer un message</h3>
+                <button id="close-contact-modal" class="p-1.5 rounded-full text-slate-500 hover:text-slate-900 dark:hover:text-white transition" aria-label="Fermer la boîte de dialogue">
+                    <i class="ph ph-x text-xl" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-4">
                 <input type="hidden" name="access_key" value="ba34ec1b-ff70-4a72-8b4b-f81474bbb099">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Votre Nom / Entreprise" required>
-                    <input type="email" name="email" placeholder="Votre Email" required>
+
+                <div>
+                    <label for="contact-name-about" class="block text-xs font-subheading font-bold text-slate-700 dark:text-slate-300 mb-1">Nom / Structure</label>
+                    <input id="contact-name-about" type="text" name="name" autocomplete="name" required class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-blue-500 transition" placeholder="Votre nom">
                 </div>
-                <select name="subject" required class="form-select">
-                    <option value="" disabled selected>-- Choisissez un sujet --</option>
-                    <option value="Proposition de stage / alternance">Proposition de stage / alternance</option>
-                    <option value="Proposition de poste / mission">Proposition de poste / mission</option>
-                    <option value="Échange technique / Autre">Échange technique / Autre</option>
-                </select>
-                <textarea name="message" placeholder="Votre Message (optionnel)" rows="3"></textarea>
-                <button type="submit" class="btn primary-btn"><i class="ph ph-paper-plane-tilt"></i> Envoyer</button>
+
+                <div>
+                    <label for="contact-email-about" class="block text-xs font-subheading font-bold text-slate-700 dark:text-slate-300 mb-1">Email</label>
+                    <input id="contact-email-about" type="email" name="email" autocomplete="email" required class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-blue-500 transition" placeholder="votre.email@exemple.com">
+                </div>
+
+                <div>
+                    <label for="contact-subject-about" class="block text-xs font-subheading font-bold text-slate-700 dark:text-slate-300 mb-1">Objet</label>
+                    <select id="contact-subject-about" name="subject" required class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-blue-500 transition">
+                        <option value="" disabled selected>-- Choisir un objet --</option>
+                        <option value="Contact professionnel">Contact professionnel</option>
+                        <option value="Question sur un projet / Open-source">Question sur un projet / Open-source</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="contact-msg-about" class="block text-xs font-subheading font-bold text-slate-700 dark:text-slate-300 mb-1">Message</label>
+                    <textarea id="contact-msg-about" name="message" rows="3" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm font-semibold focus:outline-none focus:border-blue-500 transition" placeholder="Votre message..."></textarea>
+                </div>
+
+                <button type="submit" class="mt-2 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-subheading font-bold text-white bg-blue-600 hover:bg-blue-500 active:scale-95 transition">
+                    <i class="ph ph-paper-plane-tilt text-base" aria-hidden="true"></i> Envoyer
+                </button>
             </form>
         </div>
     </div>
 
-    <script src="/assets/js/vanilla-tilt.min.js"></script>
-    <script src="/assets/js/script.js"></script>
+    <!-- Script optimisé -->
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
